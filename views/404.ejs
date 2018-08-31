@@ -11,23 +11,26 @@
 </head>
 
 <body>
+	<!-- Header that specifies the error -->
+	<div id="title">
+		<h1>Error 404</h1>
+	</div>
+
 	<!-- Sans quote -->
 	<div id="sansQuote">
 		<img src="/img/sans.png" />
-		<p>
-			* heya. <br />
-			&nbsp; there is nothing here, kid. <br />
-			<br />
-		</p>
+		<p>* heya. <br />
+		&nbsp; there is nothing here, kid. <br /><br /></p>
 	</div>
 
 	<!-- Song player -->
-	<audio id="songPlayer" src="/music/sans-theme.mp3" autoplay loop>
+	<audio id="songPlayer" src="/music/sans-theme.mp3" loop>
 
 	<!-- JS script used to lower the volume of the song player -->
 	<script>
 		let songPlayer = document.getElementById('songPlayer');
 		songPlayer.volume = 0.4;
+		songPlayer.play();
 	</script>
 </body>
 </html>

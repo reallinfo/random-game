@@ -1,6 +1,11 @@
 @font-face {
     font-family: 'Sans';
-    src: url('/fonts/sans.ttf');
+	src: url('/fonts/sans.ttf');
+}
+
+@font-face {
+	font-family: 'MonsterFriendFore';
+	src: url('/fonts/MonsterFriendFore.otf');
 }
 
 html, body {
@@ -9,16 +14,35 @@ html, body {
 
 body {
 	background-color: black;
-	margin: 0;
-	display: flex;
+	color: white;
+	margin: auto;
 	justify-content: center;
 	align-items: center;
-	font-family: 'Sans';
+	width: 35%;
+}
+
+h1 {
+	font-family: 'MonsterFriendFore';
+	font-size: 45px;
+	text-align: center;
 }
 
 p {
 	border: 3px solid white;
 	padding: 15px;
-	color: white;
+	font-family: 'Sans';
 	font-size: 28px;
+}
+
+#title {
+	margin-top: 15%;
+}
+
+#sansQuote {
+	margin-top: 25%;
+}
+
+#sansQuote img {
+	display: block;
+    margin: auto;
 }

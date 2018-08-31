@@ -4019,6 +4019,10 @@ input, select, textarea {
 				padding-left: 1em;
 			}
 
+			#footer .inner .menulist li:hover {
+				opacity: 0.7;
+			}
+
 				#footer .inner .menulist li:first-child {
 					border-left: 0;
 					margin-left: 0;
