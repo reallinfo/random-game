@@ -1,0 +1,24 @@
+@font-face {
+    font-family: 'Sans';
+    src: url('/fonts/sans.ttf');
+}
+
+html, body {
+	height: 100%;
+}
+
+body {
+	background-color: black;
+	margin: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-family: 'Sans';
+}
+
+p {
+	border: 3px solid white;
+	padding: 15px;
+	color: white;
+	font-size: 28px;
+}

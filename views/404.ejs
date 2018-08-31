@@ -1,25 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Page not found - Random Game</title>
+	<title>Error 404 - Random Game</title>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-	<link rel="stylesheet" href="/css/main.css" />
+	<link rel="stylesheet" href="/css/404.css" />
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
 	integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
 	crossorigin="anonymous">
 </head>
 
 <body>
-	<!-- Wrapper -->
-	<div id="page-wrapper">
-
-		<!-- Banner -->
-		<section id="banner">
-			<div class="inner">
-				<h2>ERROR 404</h2>
-			</div>
-		</section>
-	</div>
+	<img src="/img/sans.png" />
+	<p>
+		* heya. <br />
+		&nbsp; there is nothing here, kid. <br />
+		<br />
+	</p>
+	<audio id="songPlayer" src="/music/sans-theme.mp3" autoplay loop>
+	<script>
+		let songPlayer = document.getElementById('songPlayer');
+		songPlayer.volume = 0.4;
+	</script>
 </body>
 </html>
