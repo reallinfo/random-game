@@ -23,7 +23,7 @@ body {
 
 h1 {
 	font-family: 'MonsterFriendFore';
-	font-size: 45px;
+	font-size: 3em;
 	text-align: center;
 }
 
@@ -31,7 +31,7 @@ p {
 	border: 3px solid white;
 	padding: 15px;
 	font-family: 'Sans';
-	font-size: 28px;
+	font-size: 1.75em;
 }
 
 #title {

@@ -8,8 +8,15 @@ app.set("view engine", "ejs");
 /* Specify that static files are located in the public folder. */
 app.use(express.static("public"));
 
+/* Routes */
 app.get('/', (req, res) => {
 	res.render("index");
+});
+app.get('/list', (req, res) => {
+	res.render("list");
+});
+app.get('/add-game', (req, res) => {
+	res.render("add-game");
 });
 
 /* Redirect pages that do not exist to a 404 error. */
