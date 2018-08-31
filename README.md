@@ -1,3 +1,8 @@
 # Random Game
 
-To do.
+Instructions:
+
+```bash
+npm install
+npm start
+```
