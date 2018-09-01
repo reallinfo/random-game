@@ -8,6 +8,11 @@
 	src: url('/fonts/MonsterFriendFore.otf');
 }
 
+@font-face {
+	font-family: 'DTM';
+	src: url('/fonts/DTM-Mono.otf');
+}
+
 html, body {
 	height: 100%;
 }
@@ -42,7 +47,31 @@ p {
 	margin-top: 25%;
 }
 
-#sansQuote img {
-	display: block;
-    margin: auto;
+	#sansQuote img {
+		display: block;
+		margin: auto;
+	}
+
+#backLink {
+	margin-top: 10%;
+	font-size: 20px;
+	font-family: 'DTM';
+	text-align: center;
 }
+
+	#backLink a {
+		text-decoration: none;
+	}
+
+	#backLink .heart {
+		color: #ff1111;
+	}
+
+	#backLink .text {
+		opacity: 0.8;
+		color: white;
+	}
+
+	#backLink .text:hover {
+		opacity: 0.9;
+	}

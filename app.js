@@ -13,10 +13,10 @@ app.get('/', (req, res) => {
 	res.render("index");
 });
 app.get('/list', (req, res) => {
-	res.render("list");
+	res.render("list", {title: "Game list | "});
 });
 app.get('/add-game', (req, res) => {
-	res.render("add-game");
+	res.render("add-game", {title: "Add game | "});
 });
 
 /* Redirect pages that do not exist to the 404 error page. */
