@@ -4,6 +4,7 @@ const DB_HOST		= 'mongodb://localhost';
 const DB_NAME		= 'random-game';
 const DB_COLLECTION	= 'games';
 
+const CONNECT_OPTIONS = { useNewUrlParser: true };
 const QUERY_OPTIONS	= null;
 
 /**
@@ -16,9 +17,8 @@ class GameDb {
 	 * @returns {MongoClient.db} db
 	 */
 	static connect() {
-		MongoClient.connect(DB_HOST, { useNewUrlParser: true }, (err, client) => {
-			if (err)
-				throw err;
+		MongoClient.connect(DB_HOST, CONNECT_OPTIONS, (err, client) => {
+			if (err) throw err;
 			let db = client.db(DB_NAME);
 			return (db);
 			//client.close();
