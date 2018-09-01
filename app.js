@@ -19,7 +19,7 @@ app.get('/add-game', (req, res) => {
 	res.render("add-game");
 });
 
-/* Redirect pages that do not exist to a 404 error. */
+/* Redirect pages that do not exist to the 404 error page. */
 app.use((req, res, next) => {
 	res.status(404).render("404");
 });
