@@ -8,6 +8,20 @@ const CONNECT_OPTIONS = { useNewUrlParser: true };
 const QUERY_OPTIONS	= null;
 
 /**
+ * EXPLICATIONS SUR PQ CA FUCKED UP :
+ * 
+ * @Aihe Ta fonction connect() retourne toujours undefined.
+ * (parce qu'elle retourne rien). Ton return est dans le callback de
+ * MongoClient.connect, ce qui n'est pas la même chose. J'ai tendance à
+ * conseiller d'utiliser l'api de promise si elle est dispo (je connais pas
+ * trop mongo, je sais pas si il y en a une dans la lib officielle). Dans
+ * ton cas, c'est ta fonction connect qui devrait prendre un callback et dans
+ * ta fonction all, tu dois lui passer une fonction qui fait la suite du
+ * traitement. C'est un peu compliqué le code async... On arrive vite dans le
+ * callback hell sans utiliser de promise.
+ */
+
+/**
  * Utility class allowing interaction with the mongo database.
  * Do not create instances of this one it is useless.
  */
