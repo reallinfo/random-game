@@ -16,6 +16,7 @@ npm start
 - [ ] Create the DB class
 - [ ] List the games (without pagination)
 - [ ] Create the form to add a new game
+- [ ] Edit/Delete games
 - [ ] Create the pagination for the game list
 - [ ] Make the random game choice available
 - [ ] Add some animations for the game chooser
