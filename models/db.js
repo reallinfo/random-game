@@ -45,7 +45,7 @@ db.collection(DB_COLLECTION).update(
 /* Delete function : NEED THE ID */
 let idToFind = "53dfe7bbfd06f94c156ee96e";
 let objToDelete = { _id: new MongoObjectID(idToFind) };
-db.collection(DB_COLLECTION).remove(objToDelete, null, (err, results) {
+db.collection(DB_COLLECTION).remove(objToDelete, null, (err, results) => {
 	if (error)
 		throw err;
 });
