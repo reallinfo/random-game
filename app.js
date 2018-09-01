@@ -14,7 +14,7 @@ app.get('/', (req, res) => {
 	res.render('index');
 });
 app.get('/list', (req, res) => {
-	console.log(GameDb.all());
+	GameDb.all();
 	res.render('list', {title: 'Game list | '});
 });
 app.get('/add-game', (req, res) => {
