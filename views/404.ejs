@@ -49,6 +49,7 @@
 				} else {
 					document.getElementById(id).innerHTML += message[index++];
 				}
+				/* This is ugly, don't do this at home kids */
 				if (index % 2 == 0) {
 					let audio = new Audio('/audio/sans-voice.wav');
 					audio.volume = 0.4;
