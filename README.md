@@ -21,6 +21,7 @@ npm start
 - [ ] Make the random game choice available
 - [ ] Add some animations for the game chooser
 - [ ] Maybe add more parameters for the game chooser (game type etc)
-- [ ] Add the text animation for the 404 error page
+- [x] Add the text animation for the 404 error page
+- [x] Add Sans voice to the 404 error page
 - [ ] Get it to work online
 - [ ] Write README

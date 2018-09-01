@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html>
 <head>
 	<title>Error 404 | Random Game</title>
@@ -20,8 +19,7 @@
 	<!-- Sans quote -->
 	<div id="sansQuote">
 		<img src="/img/sans.png" />
-		<p>* heya. <br />
-		&nbsp; there is nothing here, kid. <br /><br /></p>
+		<p>* <span id="sansText"></span></p>
 	</div>
 
 	<!-- Go back link -->
@@ -31,13 +29,44 @@
 	</div>
 
 	<!-- Song player -->
-	<audio id="songPlayer" src="/music/sans-theme.mp3" loop>
+	<audio id="songPlayer" src="/audio/sans-theme.mp3" loop>
 
-	<!-- JS script used to lower the volume of the song player -->
+	<!-- JS script -->
 	<script>
+		/**
+		 * Used to show Sans text. The ° and > char are replaced by <br /> and
+		 * &nbsp; for typo.
+		 * @param id {string}
+		 * @param message {string}
+		 * @param index {number}
+		 * @param interval {number}
+		 */
+		function showText(id, message, index, interval, player) {
+			if (index < message.length) {
+				if (message[index] == '°' || message[index] == '>') {
+					let toAdd = message[index++] == '°' ? '<br />' : '&nbsp;'
+					document.getElementById(id).innerHTML += toAdd;
+				} else {
+					document.getElementById(id).innerHTML += message[index++];
+				}
+				if (index % 2 == 0) {
+					let audio = new Audio('/audio/sans-voice.wav');
+					audio.volume = 0.4;
+					audio.play();
+				}
+				setTimeout(() => {
+					showText(id, message, index, interval);
+				}, interval);
+			}
+		}
+
+		/* used to lower the volume of the song player  */
 		let songPlayer = document.getElementById('songPlayer');
 		songPlayer.volume = 0.4;
 		songPlayer.play();
+
+		/* call the function for Sans'text */
+		showText('sansText', 'heya. °> there is nothing here, kid.', 0, 50);
 	</script>
 </body>
 </html>
