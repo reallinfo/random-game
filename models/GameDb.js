@@ -1,15 +1,15 @@
-const MongoClient	= require('mongodb').MongoClient;
+const MongoClient		= require('mongodb').MongoClient;
 
-const DB_HOST		= 'mongodb://localhost';
-const DB_NAME		= 'random-game';
-const DB_COLLECTION	= 'games';
+const DB_HOST			= 'mongodb://localhost';
+const DB_NAME			= 'random-game';
+const DB_COLLECTION		= 'games';
 
-const CONNECT_OPTIONS = { useNewUrlParser: true };
-const QUERY_OPTIONS	= null;
+const CONNECT_OPTIONS	= { useNewUrlParser: true };
+const QUERY_OPTIONS		= null;
 
 /**
  * Utility class allowing interaction with the mongo database.
- * Do not create instances of this one it is useless.
+ * Do not create instances of this it is useless.
  */
 class GameDb {
 	/**
@@ -40,7 +40,7 @@ class GameDb {
 		
 		this.connect().then((client) => {
 			let db = client.db(DB_NAME);
-			db.collection(DB_COLLECTION).insert(newGame, QUERY_OPTIONS, (err, results) => {
+			db.collection(DB_COLLECTION).insertOne(newGame, QUERY_OPTIONS, (err, results) => {
 				if (err) throw err;
 				console.log("Inserted.");
 			});
@@ -54,18 +54,27 @@ class GameDb {
 	static edit(oldName, newName) {
 		this.connect().then((client) => {
 			let db = client.db(DB_NAME);
-			db.collection(DB_COLLECTION).update(
+			db.collection(DB_COLLECTION).updateOne(
 				{ name: oldName }, 
-				{ name: newName }
+				{ $set: { name: newName } }
 			);
 			client.close();
 		});
 	}
 	
 	/**
+	 * Returns the id of the game.
+	 */
+	static findId(name) {
+		/* TODO */
+		return (name);	
+	}
+
+	/**
 	 * Deletes a game from the database.
 	 */
-	static delete(id) {
+	static delete(name) {
+		let id = this.findId(name);
 		let objToDelete = { _id: new MongoObjectID(id) };
 
 		this.connect().then((client) => {
