@@ -1,5 +1,6 @@
 const express		= require('express');
 const app			= express();
+const GameDb		= require('./models/GameDb');
 
 const SERVER_PORT	= 8080;
 
@@ -13,6 +14,7 @@ app.get('/', (req, res) => {
 	res.render('index');
 });
 app.get('/list', (req, res) => {
+	console.log(GameDb.all());
 	res.render('list', {title: 'Game list | '});
 });
 app.get('/add-game', (req, res) => {
