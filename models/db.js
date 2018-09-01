@@ -5,6 +5,8 @@ const DB_HOST		= 'mongodb://localhost';
 const DB_NAME		= 'random-game';
 const DB_COLLECTION	= 'games';
 
+const QUERY_OPTIONS	= null;
+
 /* Connect function : create a connection with the DB and returns the db
  * object.
  */
@@ -28,7 +30,7 @@ db.collection(DB_COLLECTION).find().toArray((err, results) => {
 
 /* Add function : NEED THE NAME */
 let newGame = { name: "name" };
-db.collection(DB_COLLECTION).insert(newGame, null, (err, results) => {
+db.collection(DB_COLLECTION).insert(newGame, QUERY_OPTIONS, (err, results) => {
 	if (err)
 		throw err;
 	console.log("Inserted.")
@@ -45,7 +47,7 @@ db.collection(DB_COLLECTION).update(
 /* Delete function : NEED THE ID */
 let idToFind = "53dfe7bbfd06f94c156ee96e";
 let objToDelete = { _id: new MongoObjectID(idToFind) };
-db.collection(DB_COLLECTION).remove(objToDelete, null, (err, results) => {
+db.collection(DB_COLLECTION).remove(objToDelete, QUERY_OPTIONS, (err, results) => {
 	if (error)
 		throw err;
 });
