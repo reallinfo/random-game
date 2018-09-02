@@ -10,6 +10,9 @@ const QUERY_OPTIONS		= null;
 /**
  * Utility class allowing interaction with the mongo database.
  * Do not create instances of this it is useless.
+ * @TODO: all() should return the object
+ * @TODO: findId()
+ * @TODO: delete()
  */
 class GameDb {
 	/**
