@@ -10,7 +10,7 @@ npm start
 * express
 * ejs
 * mongodb
-* html5up theme
+* html5up theme (solid state)
 
 ## TODO list
 - [x] Create the DB class

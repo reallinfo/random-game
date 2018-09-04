@@ -33,10 +33,8 @@ class GameDb {
 		
 		this.connect().then((client) => {
 			let db = client.db(DB_NAME);
-			db.collection(DB_COLLECTION).insertOne(newGame, QUERY_NO_OPTIONS, (err, results) => {
-				if (err) throw err;
-				console.log("Inserted.");
-			});
+			db.collection(DB_COLLECTION).insertOne(newGame, QUERY_NO_OPTIONS,
+				(err, results) => { if (err) throw err; });
 			client.close();
 		});
 	}
@@ -66,9 +64,8 @@ class GameDb {
 
 		this.connect().then((client) => {
 			let db = client.db(DB_NAME);
-			db.collection(DB_COLLECTION).deleteOne(objToDelete, QUERY_NO_OPTIONS, (err, results) => {
-				if (err) throw err;
-			});
+			db.collection(DB_COLLECTION).deleteOne(objToDelete,
+				QUERY_NO_OPTIONS, (err, results) => { if (err) throw err; });
 			client.close();
 		});
 	}
