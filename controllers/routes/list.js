@@ -15,9 +15,13 @@ module.exports = function(app) {
 		                               games: docs });
 			}).catch((err) => {
 				res.render(FILENAME, { title: TITLE_PAGE,
-	                                   games: undefined })
+	                                   games: undefined });
 			});
 			client.close();
-		});
+		}).catch((err) => {
+			console.log('couldn\'t connect to the db.');
+			res.render(FILENAME, { title: TITLE_PAGE,
+	                               games: undefined });
+		} );
 	});
 }
