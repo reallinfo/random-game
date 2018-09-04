@@ -1,6 +1,6 @@
 const express		= require('express');
 const app			= express();
-const router 		= require('./controllers/routes');
+const router 		= require('./controllers/router');
 
 const SERVER_PORT	= 8080;
 
@@ -10,7 +10,7 @@ app.set('view engine', 'ejs');
 /* Specify that static files are located in the public folder. */
 app.use(express.static('public'));
 
-/* Routes */
+/* Routes : see controllers/router.js */
 router(app);
 
 /* Redirect pages that do not exist to the 404 error page. */
