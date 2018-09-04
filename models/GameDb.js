@@ -9,6 +9,7 @@ const CONNECT_OPTIONS	= { useNewUrlParser: true };
 /** Use no options for the query */
 const QUERY_NO_OPTIONS	= null;
 
+
 /**
  * Utility class allowing interaction with the mongo database.
  * Do not create instances of this it is useless.

@@ -1,5 +1,6 @@
 const GameDb		= require('../models/GameDb');
 
+
 module.exports = function(app) {
     // INDEX
 	app.get('/', (req, res) => {

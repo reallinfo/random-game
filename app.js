@@ -1,8 +1,8 @@
 const express		= require('express');
 const app			= express();
 const router 		= require('./controllers/routes');
-
 const SERVER_PORT	= 8080;
+
 
 /* Set the view engine to EJS. */
 app.set('view engine', 'ejs');
