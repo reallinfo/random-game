@@ -1,4 +1,5 @@
 const MongoClient		= require('mongodb').MongoClient;
+const MongoObjectID		= require("mongodb").ObjectID;
 
 const DB_HOST			= 'mongodb://localhost';
 const DB_NAME			= 'random-game';
@@ -6,7 +7,7 @@ const DB_COLLECTION		= 'games';
 
 /** See: http://minilink.es/3stl */
 const CONNECT_OPTIONS	= { useNewUrlParser: true };
-/** Use no options for the query */
+
 const QUERY_NO_OPTIONS	= null;
 
 
@@ -61,7 +62,6 @@ class GameDb {
 	 * @param  {String} id [The ID of the game we want to delete from the DB]
 	 */
 	static delete(id) {
-		let MongoObjectID = require("mongodb").ObjectID;
 		let objToDelete = { _id: new MongoObjectID(id) };
 
 		this.connect().then((client) => {
