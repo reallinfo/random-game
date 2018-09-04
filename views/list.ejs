@@ -13,6 +13,13 @@
 		</section>
 
 		<!-- List -->
+		<section>
+			<ul>
+	  			<% games.forEach(function(game){ %>
+	  				<li><%= game.name %> : <%= game._id %></li>
+	  			<% }); %>
+	  		</ul>
+  		</section>
 
 		<!-- Footer Menu -->
 		<section id="footer">

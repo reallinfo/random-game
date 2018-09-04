@@ -4,46 +4,34 @@ const DB_HOST			= 'mongodb://localhost';
 const DB_NAME			= 'random-game';
 const DB_COLLECTION		= 'games';
 
+/** See: http://minilink.es/3stl */
 const CONNECT_OPTIONS	= { useNewUrlParser: true };
-const QUERY_OPTIONS		= null;
+/** Use no options for the query */
+const QUERY_NO_OPTIONS	= null;
 
 /**
  * Utility class allowing interaction with the mongo database.
  * Do not create instances of this it is useless.
- * @TODO: all() should return the object
- * @TODO: findId()
- * @TODO: delete()
  */
 class GameDb {
 	/**
-	 * Create a connection with the DB and returns the db object.
+	 * Create a connection with the DB.
+	 * @return {Promise}
 	 */
 	static connect() {
 		return (MongoClient.connect(DB_HOST, CONNECT_OPTIONS));
 	}
 
 	/**
-	 * Returns an array containing all the games found in the db.
-	 */
-	static all() {
-		this.connect().then((client) => {
-			let db = client.db(DB_NAME);
-			db.collection(DB_COLLECTION).find({}).toArray().then((docs) => {
-				console.log(docs);
-			});
-			client.close();
-		});
-	}
-
-	/**
 	 * Add a game with the name passed as parameter in the db.
+	 * @param {String} gameName
 	 */
 	static add(gameName) {
 		let newGame = { name: gameName };
 		
 		this.connect().then((client) => {
 			let db = client.db(DB_NAME);
-			db.collection(DB_COLLECTION).insertOne(newGame, QUERY_OPTIONS, (err, results) => {
+			db.collection(DB_COLLECTION).insertOne(newGame, QUERY_NO_OPTIONS, (err, results) => {
 				if (err) throw err;
 				console.log("Inserted.");
 			});
@@ -53,6 +41,8 @@ class GameDb {
 
 	/**
 	 * Edit the name of a game by a new one.
+	 * @param  {String} oldName
+	 * @param  {String} newName
 	 */
 	static edit(oldName, newName) {
 		this.connect().then((client) => {
@@ -66,24 +56,17 @@ class GameDb {
 	}
 	
 	/**
-	 * Returns the id of the game.
+	 * Deletes a game from the database with its id.
+	 * @param  {String} id [The ID of the game we want to delete from the DB]
 	 */
-	static findId(name) {
-		/* TODO */
-		return (name);	
-	}
-
-	/**
-	 * Deletes a game from the database.
-	 */
-	static delete(name) {
-		let id = this.findId(name);
+	static delete(id) {
+		let MongoObjectID = require("mongodb").ObjectID;
 		let objToDelete = { _id: new MongoObjectID(id) };
 
 		this.connect().then((client) => {
 			let db = client.db(DB_NAME);
-			db.collection(DB_COLLECTION).remove(objToDelete, QUERY_OPTIONS, (err, results) => {
-				if (error) throw err;
+			db.collection(DB_COLLECTION).deleteOne(objToDelete, QUERY_NO_OPTIONS, (err, results) => {
+				if (err) throw err;
 			});
 			client.close();
 		});

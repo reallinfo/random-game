@@ -13,8 +13,8 @@ npm start
 * html5up theme
 
 ## TODO list
-- [ ] Create the DB class
-- [ ] List the games (without pagination)
+- [x] Create the DB class
+- [x] List the games (without pagination)
 - [ ] Create the form to add a new game
 - [ ] Edit/Delete games
 - [ ] Create the pagination for the game list
