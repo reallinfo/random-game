@@ -10,7 +10,10 @@ module.exports = function(app) {
 	app.get('/' + FILENAME, (req, res) => {
 		GameDb.connect().then((client) => {
 			let db = client.db(DB_NAME);
-			db.collection(DB_COLLECTION).find({}).toArray().then((docs) => {
+			let cursor = db.collection(DB_COLLECTION).find({});
+			/* Sort results by name asc */
+			cursor.sort({ name: 1 });
+			cursor.toArray().then((docs) => {
 				res.render(FILENAME, { title: TITLE_PAGE,
 		                               games: docs });
 			}).catch((err) => {

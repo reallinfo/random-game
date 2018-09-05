@@ -6,26 +6,37 @@
 	<div id="page-wrapper">
 
 		<!-- Banner -->
-		<section id="banner">
+		<section style="margin-top: 5%; text-align: center">
 			<div class="inner">
-				<h2><i class="fas fa-list-ul"></i> Game list</h2>
+				<h2><i class="fas fa-gamepad"></i></i> Game list</h2>
 			</div>
 		</section>
 
-		<!-- List -->
-		<section style="margin:auto; width:60%;">
-	  		<div class="row">
-				<div class="col-2 col-12-medium">
-						<ul class="alt">
-							<% if (games) { games.forEach(function(game){ %>
-	  							<li><%= game.name %></li>
-	  						<% }); } %>
-						</ul>
+		<!-- Game List -->
+		<section style="margin:auto; width:80%; margin-top: 5%;">
+			<% if (games) { %>
+				<!-- Table containing the games -->
+				<div class="table-wrapper">
+					<table>
+						<!-- Each games -->
+						<% games.forEach(function(game) { %>
+							<%- include('includes/game-row.ejs', {game: game}) %>
+						<% }); %>
+
+						<!-- Pagination
+						<tfoot>
+							<tr>
+								<td colspan="1"></td>
+								<td>→</td>
+							</tr>
+						</tfoot>
+						 -->
+					</table>
 				</div>
-			</div>	
+			<% } else { %>
+				<p>No games found !</p>
+			<% } %>
   		</section>
-
-
 
 		<!-- Footer Menu -->
 		<section id="footer">

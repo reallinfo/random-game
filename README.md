@@ -24,4 +24,4 @@ npm start
 - [x] Add the text animation for the 404 error page
 - [x] Add Sans voice to the 404 error page
 - [ ] Get it to work online
-- [ ] Write README
+- [ ] Write *a good* README
