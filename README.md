@@ -1,3 +1,5 @@
+<p align="center"><img src="logo/banner.png" alt="random-game" height="120px"></p>
+
 # Random Game WORK IN PROGRESS DONT READ THAT
 
 ## Instructions
